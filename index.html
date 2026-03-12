@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shivangi Building Material – Azamgarh</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: #1a1a1a;
+            background-color: #ffffff;
+            line-height: 1.6;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        /* Header */
+        header {
+            background: #1a1a1a;
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo h1 {
+            font-size: 1.5rem;
+            color: #EE7600;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #EE7600;
+        }
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+        }
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #EE7600;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 0.7rem;
+        }
+        /* Hero */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1589939705384-5185137a7f0f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+        }
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .btn {
+            display: inline-block;
+            background: #EE7600;
+            color: white;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            margin: 0.5rem;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #EE7600;
+        }
+        .btn:hover {
+            background: #cc5f00;
+        }
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        .badge {
+            background: rgba(255,255,255,0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-weight: 600;
+        }
+        /* Sections */
+        section {
+            padding: 4rem 0;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2rem;
+            color: #1a1a1a;
+            position: relative;
+        }
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: #EE7600;
+            margin: 0.5rem auto;
+        }
+        /* Product Grid */
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .category-btn {
+            background: #f0f0f0;
+            border: none;
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .category-btn.active {
+            background: #EE7600;
+            color: white;
+        }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .product-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            background: white;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .product-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .product-info {
+            padding: 1.5rem;
+        }
+        .product-name {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        .product-desc {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        .product-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #EE7600;
+            margin-bottom: 0.5rem;
+        }
+        .stock-badge {
+            display: inline-block;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .in-stock {
+            background: #d4edda;
+            color: #155724;
+        }
+        .out-of-stock {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            margin: 1rem 0;
+        }
+        .quantity-btn {
+            background: #ddd;
+            border: none;
+            width: 30px;
+            height: 30px;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        .quantity-input {
+            width: 50px;
+            text-align: center;
+            border: 1px solid #ddd;
+            height: 30px;
+            margin: 0 0.5rem;
+        }
+        .product-actions {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .btn-small {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+        /* Why Choose Us */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        .feature i {
+            font-size: 2.5rem;
+            color: #EE7600;
+            margin-bottom: 1rem;
+        }
+        /* Testimonials */
+        .testimonials-slider {
+            display: flex;
+            overflow-x: auto;
+            gap: 2rem;
+            padding: 1rem 0;
+            scroll-snap-type: x mandatory;
+        }
+        .testimonial {
+            min-width: 300px;
+            background: #f9f9f9;
+            padding: 2rem;
+            border-radius: 10px;
+            scroll-snap-align: start;
+        }
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 300px;
+            border: 0;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        .footer-links a {
+            color: white;
+            margin: 0 1rem;
+            text-decoration: none;
+        }
+        /* Admin Login Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+        }
+        .close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        /* Admin Dashboard */
+        .admin-dashboard {
+            display: none;
+            background: #f4f4f4;
+            padding: 2rem;
+        }
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        .admin-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .admin-tab {
+            padding: 0.5rem 1rem;
+            background: #ddd;
+            cursor: pointer;
+        }
+        .admin-tab.active {
+            background: #EE7600;
+            color: white;
+        }
+        .admin-panel {
+            display: none;
+        }
+        .admin-panel.active {
+            display: block;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .admin-product-img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+        }
+        .floating-buttons {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            z-index: 99;
+        }
+        .floating-btn {
+            background: #25D366;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            cursor: pointer;
+            border: none;
+        }
+        .floating-btn.call {
+            background: #EE7600;
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            nav ul {
+                gap: 1rem;
+            }
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <h1>Shivangi Building Material</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#" id="adminLoginBtn">Admin</a></li>
+                </ul>
+            </nav>
+            <div class="cart-icon" id="cartIcon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h2>Premium Building Materials & Wholesale Construction and paint and hardware Supplies in Azamgarh</h2>
+            <p>Reliable Materials for Construction — Cement, Steel, Paints, Hardware & More</p>
+            <div>
+                <a href="tel:+919451200355" class="btn"><i class="fas fa-phone-alt"></i> Call Now +91 94512 00355</a>
+                <a href="#" class="btn btn-outline" id="getQuoteBtn">📩 Get a Quote</a>
+            </div>
+            <div class="trust-badges">
+                <span class="badge">✔ Trusted Local Supplier</span>
+                <span class="badge">✔ Fast Delivery</span>
+                <span class="badge">✔ Bulk Orders Available</span>
+                <span class="badge">✔ Contractor Friendly Pricing</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Shivangi Building Material</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto;">Shivangi Building Material is a trusted name for building materials in Azamgarh. We supply high-quality cement, steel rods, paints, hardware tools, plumbing materials, and construction supplies for contractors, builders, and homeowners across Uttar Pradesh.</p>
+            <div style="display: flex; justify-content: center; gap: 2rem; margin-top: 2rem; flex-wrap: wrap;">
+                <span><i class="fas fa-check-circle" style="color: #EE7600;"></i> Genuine branded materials</span>
+                <span><i class="fas fa-check-circle" style="color: #EE7600;"></i> Competitive wholesale pricing</span>
+                <span><i class="fas fa-check-circle" style="color: #EE7600;"></i> On-time delivery</span>
+                <span><i class="fas fa-check-circle" style="color: #EE7600;"></i> Long-term contractor relationships</span>
+            </div>
+            <p style="text-align: center; margin-top: 2rem;"><strong>Serving:</strong> 25GM+PV4, Ghazipur - Azamgarh Rd, Azamgarh, Gaurdih Khalsa, Uttar Pradesh 276128</p>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products">
+        <div class="container">
+            <h2 class="section-title">Our Products</h2>
+            <!-- Category Filter -->
+            <div class="category-tabs" id="categoryTabs">
+                <button class="category-btn active" data-category="all">All</button>
+                <button class="category-btn" data-category="cement">Cement</button>
+                <button class="category-btn" data-category="aggregate">Aggregate</button>
+                <button class="category-btn" data-category="sand">Sand</button>
+                <button class="category-btn" data-category="steel">Steel</button>
+                <button class="category-btn" data-category="paint">Paints</button>
+                <button class="category-btn" data-category="hardware">Hardware</button>
+            </div>
+            <!-- Products Grid -->
+            <div class="products-grid" id="productsGrid"></div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section style="background: #f9f9f9;">
+        <div class="container">
+            <h2 class="section-title">Why Builders Trust Shivangi Building Material</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <i class="fas fa-medal"></i>
+                    <h3>High-Quality Materials</h3>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-user-tie"></i>
+                    <h3>Expert Product Guidance</h3>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-tags"></i>
+                    <h3>Wholesale Rates</h3>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-truck"></i>
+                    <h3>Bulk Supply Capacity</h3>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Reliable Local Reputation</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Testimonials</h2>
+            <div class="testimonials-slider" id="testimonialsSlider"></div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-grid">
+                <div>
+                    <h3>Get in Touch</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 25GM+PV4, Ghazipur - Azamgarh Rd, Azamgarh, Gaurdih Khalsa, Uttar Pradesh 276128</p>
+                    <p><i class="fas fa-phone-alt"></i> <a href="tel:+919451200355">+91 94512 00355</a></p>
+                    <p><i class="far fa-clock"></i> Mon – Sat: 8:00 AM – 7:00 PM<br>Sunday: Closed</p>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3571.123456789!2d82.123456!3d26.123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDA3JzQ0LjQiTiA4MsKwMDcnNDQuNCJF!5e0!3m2!1sen!2sin!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+                <div>
+                    <h3>Send a Message</h3>
+                    <form class="contact-form" id="contactForm">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <input type="tel" placeholder="Your Phone" required>
+                        <textarea rows="4" placeholder="Your Message" required></textarea>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#products">Products</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <p>Shivangi Building Material – Azamgarh’s Trusted Building Materials Supplier</p>
+            <p>Phone: +91 94512 00355<br>Address: 25GM+PV4, Ghazipur - Azamgarh Rd, Azamgarh, Gaurdih Khalsa, Uttar Pradesh 276128</p>
+            <p>Copyright © 2026 Shivangi Building Material</p>
+        </div>
+    </footer>
+
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+        <a href="https://wa.me/919451200355" target="_blank" class="floating-btn" id="whatsappFloat"><i class="fab fa-whatsapp"></i></a>
+        <a href="tel:+919451200355" class="floating-btn call"><i class="fas fa-phone-alt"></i></a>
+    </div>
+
+    <!-- Cart Modal (simple) -->
+    <div class="modal" id="cartModal">
+        <div class="modal-content">
+            <span class="close" onclick="document.getElementById('cartModal').style.display='none'">&times;</span>
+            <h2>Your Cart</h2>
+            <div id="cartItems"></div>
+            <div id="cartTotal" style="font-weight: bold; margin: 1rem 0;"></div>
+            <button class="btn" id="checkoutBtn">Checkout via WhatsApp</button>
+        </div>
+    </div>
+
+    <!-- Admin Login Modal -->
+    <div class="modal" id="adminLoginModal">
+        <div class="modal-content">
+            <span class="close" onclick="document.getElementById('adminLoginModal').style.display='none'">&times;</span>
+            <h2>Admin Login</h2>
+            <input type="text" id="adminUsername" placeholder="Username" value="12@3456">
+            <input type="password" id="adminPassword" placeholder="Password" value="135790">
+            <button class="btn" id="adminLoginBtnModal">Login</button>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard (hidden by default) -->
+    <div id="adminDashboard" class="admin-dashboard">
+        <div class="container">
+            <div class="admin-header">
+                <h2>Admin Dashboard</h2>
+                <button class="btn" id="logoutAdmin">Logout</button>
+            </div>
+            <div class="admin-tabs">
+                <div class="admin-tab active" data-tab="products">Products</div>
+                <div class="admin-tab" data-tab="testimonials">Testimonials</div>
+                <div class="admin-tab" data-tab="settings">Settings</div>
+            </div>
+            <!-- Products Panel -->
+            <div id="productsPanel" class="admin-panel active">
+                <button class="btn" id="addProductBtn">Add New Product</button>
+                <table id="productsTable">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Stock</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productsTableBody"></tbody>
+                </table>
+            </div>
+            <!-- Testimonials Panel -->
+            <div id="testimonialsPanel" class="admin-panel">
+                <button class="btn" id="addTestimonialBtn">Add Testimonial</button>
+                <table id="testimonialsTable">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Message</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="testimonialsTableBody"></tbody>
+                </table>
+            </div>
+            <!-- Settings Panel -->
+            <div id="settingsPanel" class="admin-panel">
+                <h3>Business Settings</h3>
+                <label>WhatsApp Number</label>
+                <input type="text" id="whatsappSetting" value="919451200355">
+                <label>Phone</label>
+                <input type="text" id="phoneSetting" value="+919451200355">
+                <label>Address</label>
+                <textarea id="addressSetting">25GM+PV4, Ghazipur - Azamgarh Rd, Azamgarh, Gaurdih Khalsa, Uttar Pradesh 276128</textarea>
+                <button class="btn" id="saveSettings">Save Settings</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Product Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content" style="max-width: 600px;">
+            <span class="close" onclick="closeProductModal()">&times;</span>
+            <h2 id="modalTitle">Add Product</h2>
+            <form id="productForm">
+                <input type="hidden" id="productId">
+                <label>Product Name</label>
+                <input type="text" id="productName" required>
+                <label>Category</label>
+                <select id="productCategory" required>
+                    <option value="cement">Cement</option>
+                    <option value="aggregate">Aggregate</option>
+                    <option value="sand">Sand</option>
+                    <option value="steel">Steel</option>
+                    <option value="paint">Paint</option>
+                    <option value="hardware">Hardware</option>
+                </select>
+                <label>Price (₹)</label>
+                <input type="number" id="productPrice" required>
+                <label>Description</label>
+                <textarea id="productDesc" rows="3" required></textarea>
+                <label>Stock Status</label>
+                <select id="productStock">
+                    <option value="in_stock">In Stock</option>
+                    <option value="out_of_stock">Out of Stock</option>
+                </select>
+                <label>Product Image</label>
+                <input type="file" id="productImageFile" accept="image/*">
+                <div id="imagePreviewContainer" style="margin: 10px 0;">
+                    <img id="imagePreview" src="#" alt="Preview" style="max-width: 200px; display: none;">
+                </div>
+                <input type="hidden" id="productImageUrl">
+                <button type="submit" class="btn">Save Product</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add/Edit Testimonial Modal -->
+    <div class="modal" id="testimonialModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeTestimonialModal()">&times;</span>
+            <h2>Testimonial</h2>
+            <form id="testimonialForm">
+                <input type="hidden" id="testimonialId">
+                <label>Name</label>
+                <input type="text" id="testimonialName" required>
+                <label>Message</label>
+                <textarea id="testimonialMessage" rows="3" required></textarea>
+                <button type="submit" class="btn">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // ==================== Data Management ====================
+        // Default products (20 items as per spec)
+        const defaultProducts = [
+            // Cement (10)
+            { id: 1, name: 'UltraTech Cement', category: 'cement', price: 380, desc: 'Premium quality OPC 53 grade cement for strong foundations.', image: 'https://via.placeholder.com/300?text=UltraTech', stock: 'in_stock' },
+            { id: 2, name: 'ACC Cement', category: 'cement', price: 375, desc: 'High-strength cement suitable for all construction needs.', image: 'https://via.placeholder.com/300?text=ACC', stock: 'in_stock' },
+            { id: 3, name: 'Ambuja Cement', category: 'cement', price: 370, desc: 'Durable and weather-resistant cement.', image: 'https://via.placeholder.com/300?text=Ambuja', stock: 'in_stock' },
+            { id: 4, name: 'Shree Cement', category: 'cement', price: 365, desc: 'Consistent quality and high early strength.', image: 'https://via.placeholder.com/300?text=Shree', stock: 'in_stock' },
+            { id: 5, name: 'Dalmia Cement', category: 'cement', price: 360, desc: 'Ideal for rapid construction.', image: 'https://via.placeholder.com/300?text=Dalmia', stock: 'in_stock' },
+            { id: 6, name: 'JK Cement', category: 'cement', price: 355, desc: 'Specialized in white cement and wall putty.', image: 'https://via.placeholder.com/300?text=JK', stock: 'in_stock' },
+            { id: 7, name: 'Birla Super Cement', category: 'cement', price: 380, desc: 'Superior workability and finish.', image: 'https://via.placeholder.com/300?text=Birla', stock: 'in_stock' },
+            { id: 8, name: 'Ramco Cement', category: 'cement', price: 365, desc: 'Known for durability and strength.', image: 'https://via.placeholder.com/300?text=Ramco', stock: 'in_stock' },
+            { id: 9, name: 'Wonder Cement', category: 'cement', price: 350, desc: 'Eco-friendly and high performance.', image: 'https://via.placeholder.com/300?text=Wonder', stock: 'in_stock' },
+            { id: 10, name: 'Bangur Cement', category: 'cement', price: 345, desc: 'Affordable and reliable.', image: 'https://via.placeholder.com/300?text=Bangur', stock: 'in_stock' },
+            // Aggregate (4)
+            { id: 11, name: '10mm Aggregate', category: 'aggregate', price: 1500, desc: 'Crushed stone for concrete mixing.', image: 'https://via.placeholder.com/300?text=10mm+Aggregate', stock: 'in_stock' },
+            { id: 12, name: '20mm Aggregate', category: 'aggregate', price: 1450, desc: 'Standard size for RCC work.', image: 'https://via.placeholder.com/300?text=20mm+Aggregate', stock: 'in_stock' },
+            { id: 13, name: '40mm Aggregate', category: 'aggregate', price: 1400, desc: 'For foundation and PCC.', image: 'https://via.placeholder.com/300?text=40mm+Aggregate', stock: 'in_stock' },
+            { id: 14, name: 'Crusher Dust', category: 'aggregate', price: 800, desc: 'Fine material for leveling.', image: 'https://via.placeholder.com/300?text=Crusher+Dust', stock: 'in_stock' },
+            // Sand (4)
+            { id: 15, name: 'River Sand', category: 'sand', price: 2500, desc: 'Natural sand for plastering.', image: 'https://via.placeholder.com/300?text=River+Sand', stock: 'in_stock' },
+            { id: 16, name: 'Fine Sand', category: 'sand', price: 2400, desc: 'Smooth texture for finishing.', image: 'https://via.placeholder.com/300?text=Fine+Sand', stock: 'in_stock' },
+            { id: 17, name: 'Coarse Sand', category: 'sand', price: 2300, desc: 'For concrete mixing.', image: 'https://via.placeholder.com/300?text=Coarse+Sand', stock: 'in_stock' },
+            { id: 18, name: 'M-Sand', category: 'sand', price: 2200, desc: 'Manufactured sand alternative.', image: 'https://via.placeholder.com/300?text=M-Sand', stock: 'in_stock' },
+            // Steel (5)
+            { id: 19, name: 'Tata Tiscon TMT', category: 'steel', price: 72000, desc: 'High-strength TMT bars per ton.', image: 'https://via.placeholder.com/300?text=Tata+Tiscon', stock: 'in_stock' },
+            { id: 20, name: 'JSW Neosteel', category: 'steel', price: 71000, desc: 'Earthquake-resistant TMT.', image: 'https://via.placeholder.com/300?text=JSW', stock: 'in_stock' },
+            { id: 21, name: 'SAIL TMT', category: 'steel', price: 70000, desc: 'Government certified steel.', image: 'https://via.placeholder.com/300?text=SAIL', stock: 'in_stock' },
+            { id: 22, name: 'Kamdhenu NXT', category: 'steel', price: 69500, desc: 'Premium TMT bars.', image: 'https://via.placeholder.com/300?text=Kamdhenu', stock: 'in_stock' },
+            { id: 23, name: 'Jindal Panther TMT', category: 'steel', price: 71500, desc: 'High ductility steel.', image: 'https://via.placeholder.com/300?text=Jindal', stock: 'in_stock' },
+            // Paints (3)
+            { id: 24, name: 'Asian Paints', category: 'paint', price: 2500, desc: 'Premium interior emulsion 10L.', image: 'https://via.placeholder.com/300?text=Asian+Paints', stock: 'in_stock' },
+            { id: 25, name: 'Berger Paints', category: 'paint', price: 2400, desc: 'Weather-proof exterior paint.', image: 'https://via.placeholder.com/300?text=Berger', stock: 'in_stock' },
+            { id: 26, name: 'Nerolac Paints', category: 'paint', price: 2300, desc: 'Smooth finish and long life.', image: 'https://via.placeholder.com/300?text=Nerolac', stock: 'in_stock' },
+            // Hardware (2)
+            { id: 27, name: 'GI Pipes & Fittings', category: 'hardware', price: 500, desc: 'Galvanized iron pipes per piece.', image: 'https://via.placeholder.com/300?text=GI+Pipes', stock: 'in_stock' },
+            { id: 28, name: 'Construction Tools', category: 'hardware', price: 1200, desc: 'Set of essential tools.', image: 'https://via.placeholder.com/300?text=Tools', stock: 'in_stock' }
+        ];
+
+        const defaultTestimonials = [
+            { id: 1, name: 'Local Contractor', message: 'Best building materials supplier in Azamgarh. Genuine cement and steel at fair prices.' },
+            { id: 2, name: 'Builder', message: 'Very reliable service and fast delivery. Highly recommended hardware store near Azamgarh.' },
+            { id: 3, name: 'Construction Company', message: 'Great wholesale building materials UP supplier. Professional and trustworthy.' }
+        ];
+
+        // Load data from localStorage or initialize defaults
+        let products = JSON.parse(localStorage.getItem('products')) || defaultProducts;
+        let testimonials = JSON.parse(localStorage.getItem('testimonials')) || defaultTestimonials;
+        let settings = JSON.parse(localStorage.getItem('settings')) || {
+            whatsapp: '919451200355',
+            phone: '+919451200355',
+            address: '25GM+PV4, Ghazipur - Azamgarh Rd, Azamgarh, Gaurdih Khalsa, Uttar Pradesh 276128'
+        };
+
+        // Cart
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Helper to save data
+        function saveProducts() {
+            localStorage.setItem('products', JSON.stringify(products));
+        }
+        function saveTestimonials() {
+            localStorage.setItem('testimonials', JSON.stringify(testimonials));
+        }
+        function saveSettings() {
+            localStorage.setItem('settings', JSON.stringify(settings));
+        }
+        function saveCart() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+        }
+
+        // ==================== Render Functions ====================
+        function renderProducts(category = 'all') {
+            const grid = document.getElementById('productsGrid');
+            if (!grid) return;
+            let filtered = products;
+            if (category !== 'all') {
+                filtered = products.filter(p => p.category === category);
+            }
+            grid.innerHTML = filtered.map(p => `
+                <div class="product-card">
+                    <img src="${p.image || 'https://via.placeholder.com/300?text=No+Image'}" alt="${p.name}" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-name">${p.name}</h3>
+                        <p class="product-desc">${p.desc.substring(0, 60)}...</p>
+                        <div class="product-price">₹${p.price}</div>
+                        <span class="stock-badge ${p.stock === 'in_stock' ? 'in-stock' : 'out-of-stock'}">${p.stock === 'in_stock' ? 'In Stock' : 'Out of Stock'}</span>
+                        <div class="quantity-selector">
+                            <button class="quantity-btn" onclick="changeQty('${p.id}', -1)">-</button>
+                            <input type="text" class="quantity-input" id="qty-${p.id}" value="1" readonly>
+                            <button class="quantity-btn" onclick="changeQty('${p.id}', 1)">+</button>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-small" onclick="addToCart('${p.id}')" ${p.stock !== 'in_stock' ? 'disabled' : ''}>Add to Cart</button>
+                            <button class="btn btn-small btn-outline" onclick="buyNow('${p.id}')" ${p.stock !== 'in_stock' ? 'disabled' : ''}>Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function changeQty(productId, delta) {
+            const input = document.getElementById(`qty-${productId}`);
+            let val = parseInt(input.value) || 1;
+            val = Math.max(1, val + delta);
+            input.value = val;
+        }
+
+        function addToCart(productId) {
+            const product = products.find(p => p.id == productId);
+            if (!product || product.stock !== 'in_stock') return;
+            const qty = parseInt(document.getElementById(`qty-${productId}`).value) || 1;
+            const existing = cart.find(item => item.id == productId);
+            if (existing) {
+                existing.qty += qty;
+            } else {
+                cart.push({ id: product.id, name: product.name, price: product.price, qty, category: product.category });
+            }
+            saveCart();
+            alert('Added to cart');
+        }
+
+        function buyNow(productId) {
+            addToCart(productId);
+            document.getElementById('cartModal').style.display = 'flex';
+            renderCart();
+        }
+
+        function renderCart() {
+            const container = document.getElementById('cartItems');
+            let total = 0;
+            container.innerHTML = cart.map(item => {
+                total += item.price * item.qty;
+                return `<div style="display:flex; justify-content:space-between; margin:5px 0;">
+                    <span>${item.name} x${item.qty}</span>
+                    <span>₹${item.price * item.qty}</span>
+                </div>`;
+            }).join('');
+            document.getElementById('cartTotal').innerText = `Total: ₹${total}`;
+        }
+
+        function updateCartCount() {
+            const count = cart.reduce((acc, item) => acc + item.qty, 0);
+            document.getElementById('cartCount').innerText = count;
+        }
+
+        function renderTestimonials() {
+            const slider = document.getElementById('testimonialsSlider');
+            slider.innerHTML = testimonials.map(t => `
+                <div class="testimonial">
+                    <p>"${t.message}"</p>
+                    <h4>- ${t.name}</h4>
+                </div>
+            `).join('');
+        }
+
+        // Category filter
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                renderProducts(this.dataset.category);
+            });
+        });
+
+        // ==================== Admin Functions ====================
+        let currentProductId = null;
+        let currentTestimonialId = null;
+
+        function openProductModal(product = null) {
+            document.getElementById('productModal').style.display = 'flex';
+            if (product) {
+                document.getElementById('modalTitle').innerText = 'Edit Product';
+                document.getElementById('productId').value = product.id;
+                document.getElementById('productName').value = product.name;
+                document.getElementById('productCategory').value = product.category;
+                document.getElementById('productPrice').value = product.price;
+                document.getElementById('productDesc').value = product.desc;
+                document.getElementById('productStock').value = product.stock;
+                if (product.image) {
+                    document.getElementById('imagePreview').src = product.image;
+                    document.getElementById('imagePreview').style.display = 'block';
+                    document.getElementById('productImageUrl').value = product.image;
+                }
+            } else {
+                document.getElementById('modalTitle').innerText = 'Add Product';
+                document.getElementById('productForm').reset();
+                document.getElementById('productId').value = '';
+                document.getElementById('imagePreview').style.display = 'none';
+                document.getElementById('productImageUrl').value = '';
+            }
+        }
+
+        function closeProductModal() {
+            document.getElementById('productModal').style.display = 'none';
+        }
+
+        // Image upload preview and conversion to data URL
+        document.getElementById('productImageFile').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(ev) {
+                    document.getElementById('imagePreview').src = ev.target.result;
+                    document.getElementById('imagePreview').style.display = 'block';
+                    document.getElementById('productImageUrl').value = ev.target.result; // store as data URL
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        document.getElementById('productForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const id = document.getElementById('productId').value;
+            const product = {
+                id: id ? parseInt(id) : Date.now(),
+                name: document.getElementById('productName').value,
+                category: document.getElementById('productCategory').value,
+                price: parseFloat(document.getElementById('productPrice').value),
+                desc: document.getElementById('productDesc').value,
+                stock: document.getElementById('productStock').value,
+                image: document.getElementById('productImageUrl').value || 'https://via.placeholder.com/300?text=No+Image'
+            };
+            if (id) {
+                // update
+                const index = products.findIndex(p => p.id == id);
+                if (index !== -1) products[index] = product;
+            } else {
+                products.push(product);
+            }
+            saveProducts();
+            renderProducts(document.querySelector('.category-btn.active').dataset.category);
+            renderAdminProducts();
+            closeProductModal();
+        });
+
+        function renderAdminProducts() {
+            const tbody = document.getElementById('productsTableBody');
+            tbody.innerHTML = products.map(p => `
+                <tr>
+                    <td><img src="${p.image || 'https://via.placeholder.com/50'}" class="admin-product-img"></td>
+                    <td>${p.name}</td>
+                    <td>${p.category}</td>
+                    <td>₹${p.price}</td>
+                    <td><span class="stock-badge ${p.stock === 'in_stock' ? 'in-stock' : 'out-of-stock'}">${p.stock}</span></td>
+                    <td>
+                        <button onclick="editProduct(${p.id})">Edit</button>
+                        <button onclick="deleteProduct(${p.id})">Delete</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        window.editProduct = function(id) {
+            const product = products.find(p => p.id == id);
+            if (product) openProductModal(product);
+        };
+
+        window.deleteProduct = function(id) {
+            if (confirm('Delete product?')) {
+                products = products.filter(p => p.id != id);
+                saveProducts();
+                renderAdminProducts();
+                renderProducts(document.querySelector('.category-btn.active').dataset.category);
+            }
+        };
+
+        // Testimonials admin
+        function renderAdminTestimonials() {
+            const tbody = document.getElementById('testimonialsTableBody');
+            tbody.innerHTML = testimonials.map(t => `
+                <tr>
+                    <td>${t.name}</td>
+                    <td>${t.message}</td>
+                    <td>
+                        <button onclick="editTestimonial(${t.id})">Edit</button>
+                        <button onclick="deleteTestimonial(${t.id})">Delete</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        window.editTestimonial = function(id) {
+            const testimonial = testimonials.find(t => t.id == id);
+            if (testimonial) {
+                document.getElementById('testimonialModal').style.display = 'flex';
+                document.getElementById('testimonialId').value = testimonial.id;
+                document.getElementById('testimonialName').value = testimonial.name;
+                document.getElementById('testimonialMessage').value = testimonial.message;
+            }
+        };
+
+        window.deleteTestimonial = function(id) {
+            if (confirm('Delete testimonial?')) {
+                testimonials = testimonials.filter(t => t.id != id);
+                saveTestimonials();
+                renderAdminTestimonials();
+                renderTestimonials();
+            }
+        };
+
+        document.getElementById('testimonialForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const id = document.getElementById('testimonialId').value;
+            const testimonial = {
+                id: id ? parseInt(id) : Date.now(),
+                name: document.getElementById('testimonialName').value,
+                message: document.getElementById('testimonialMessage').value
+            };
+            if (id) {
+                const index = testimonials.findIndex(t => t.id == id);
+                if (index !== -1) testimonials[index] = testimonial;
+            } else {
+                testimonials.push(testimonial);
+            }
+            saveTestimonials();
+            renderAdminTestimonials();
+            renderTestimonials();
+            closeTestimonialModal();
+        });
+
+        function closeTestimonialModal() {
+            document.getElementById('testimonialModal').style.display = 'none';
+            document.getElementById('testimonialForm').reset();
+        }
+
+        document.getElementById('addTestimonialBtn').addEventListener('click', () => {
+            document.getElementById('testimonialModal').style.display = 'flex';
+            document.getElementById('testimonialId').value = '';
+            document.getElementById('testimonialForm').reset();
+        });
+
+        // Settings
+        document.getElementById('saveSettings').addEventListener('click', function() {
+            settings.whatsapp = document.getElementById('whatsappSetting').value;
+            settings.phone = document.getElementById('phoneSetting').value;
+            settings.address = document.getElementById('addressSetting').value;
+            saveSettings();
+            alert('Settings saved');
+        });
+
+        // Admin login
+        document.getElementById('adminLoginBtn').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('adminLoginModal').style.display = 'flex';
+        });
+
+        document.getElementById('adminLoginBtnModal').addEventListener('click', () => {
+            const user = document.getElementById('adminUsername').value;
+            const pass = document.getElementById('adminPassword').value;
+            if (user === '12@3456' && pass === '135790') {
+                document.getElementById('adminLoginModal').style.display = 'none';
+                document.getElementById('adminDashboard').style.display = 'block';
+                document.querySelector('header').style.display = 'none';
+                document.querySelector('.hero').style.display = 'none';
+                document.querySelector('#about').style.display = 'none';
+                document.querySelector('#products').style.display = 'none';
+                document.querySelector('section[style*="background"]').style.display = 'none';
+                document.querySelector('#contact').style.display = 'none';
+                document.querySelector('footer').style.display = 'none';
+                document.querySelector('.floating-buttons').style.display = 'none';
+                renderAdminProducts();
+                renderAdminTestimonials();
+                // load settings into fields
+                document.getElementById('whatsappSetting').value = settings.whatsapp;
+                document.getElementById('phoneSetting').value = settings.phone;
+                document.getElementById('addressSetting').value = settings.address;
+            } else {
+                alert('Invalid credentials');
+            }
+        });
+
+        document.getElementById('logoutAdmin').addEventListener('click', () => {
+            document.getElementById('adminDashboard').style.display = 'none';
+            document.querySelector('header').style.display = 'block';
+            document.querySelector('.hero').style.display = 'block';
+            document.querySelector('#about').style.display = 'block';
+            document.querySelector('#products').style.display = 'block';
+            document.querySelector('section[style*="background"]').style.display = 'block';
+            document.querySelector('#contact').style.display = 'block';
+            document.querySelector('footer').style.display = 'block';
+            document.querySelector('.floating-buttons').style.display = 'flex';
+            renderProducts('all');
+        });
+
+        // Admin tabs
+        document.querySelectorAll('.admin-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                document.querySelectorAll('.admin-panel').forEach(p => p.classList.remove('active'));
+                document.getElementById(this.dataset.tab + 'Panel').classList.add('active');
+            });
+        });
+
+        document.getElementById('addProductBtn').addEventListener('click', () => openProductModal());
+
+        // ==================== Cart & Checkout ====================
+        document.getElementById('cartIcon').addEventListener('click', () => {
+            renderCart();
+            document.getElementById('cartModal').style.display = 'flex';
+        });
+
+        document.getElementById('checkoutBtn').addEventListener('click', () => {
+            if (cart.length === 0) {
+                alert('Cart is empty');
+                return;
+            }
+            let message = `Hello Shivangi Building Material,%0A%0AI would like to order:%0A%0A`;
+            cart.forEach(item => {
+                message += `${item.name} - Qty: ${item.qty} - Price: ₹${item.price * item.qty}%0A`;
+            });
+            const total = cart.reduce((acc, item) => acc + item.price * item.qty, 0);
+            message += `%0ATotal: ₹${total}%0A%0APlease confirm availability and delivery details.%0AMy Name:%0AMy Address:`;
+            window.open(`https://wa.me/${settings.whatsapp}?text=${message}`, '_blank');
+        });
+
+        // Quote button
+        document.getElementById('getQuoteBtn').addEventListener('click', (e) => {
+            e.preventDefault();
+            window.open(`https://wa.me/${settings.whatsapp}?text=Hello Shivangi Building Material, I would like to get a quote for building materials.`, '_blank');
+        });
+
+        // Contact form
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Message sent (demo)');
+        });
+
+        // Initialize
+        renderProducts();
+        renderTestimonials();
+        updateCartCount();
+
+        // Close modals when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        };
+    </script>
+</body>
+</html>
